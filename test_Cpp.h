@@ -22,3 +22,7 @@ std::cout << a2 << "\n\n";
 std::cout << "Matrice 3x4 avec que des zeros:\n";
 ArrayXXf a3 = ArrayXXf::Zero(3, 4);
 std::cout << a3 << "\n";
+
+Matrix4i m = Matrix4i::Random();
+cout << "Matrice M" << endl << m << endl;
+cout << "Matrice M mais sous forme 2x8" << endl << m.reshaped(2, 8) << endl;
