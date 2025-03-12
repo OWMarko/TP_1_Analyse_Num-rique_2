@@ -57,7 +57,7 @@ int main() {
     int size = 100;
     std::vector<double> x_random, y_random;
 
-    generateRandomVectors(x_random, y_random, size);
+    RandomVectors(x_random, y_random, size);
 
     Eigen::VectorXd rep_random = solvand(x_random, y_random);
     std::cout << "Les coefficients sont : " << rep_random.transpose() << std::endl;
@@ -77,3 +77,8 @@ double evaluerPolynomial(const std::vector<double>& coefficients, double z) {
 }
 
 //Question 2
+double evaluerPolynomialSansFor(const std::vector<double>& coefficients, double z, int n) {
+    if (n == 0) {
+        return coefficients[0];
+    }
+    return coefficients[n] + z * evaluerPolynomialSansFor(coefficients, z, n - 1);
