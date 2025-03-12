@@ -51,3 +51,15 @@ int main() {
     return 0;
 }
 
+// Question 4
+int main() {
+    // Question 4
+    int size = 100;
+    std::vector<double> x_random, y_random;
+
+    generateRandomVectors(x_random, y_random, size);
+
+    Eigen::VectorXd rep_random = solvand(x_random, y_random);
+    std::cout << "Les coefficients de la solution pour les vecteurs aléatoires sont : " << rep_random.transpose() << std::endl;
+
+    return 0;
