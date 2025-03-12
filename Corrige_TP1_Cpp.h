@@ -60,6 +60,20 @@ int main() {
     generateRandomVectors(x_random, y_random, size);
 
     Eigen::VectorXd rep_random = solvand(x_random, y_random);
-    std::cout << "Les coefficients de la solution pour les vecteurs aléatoires sont : " << rep_random.transpose() << std::endl;
+    std::cout << "Les coefficients sont : " << rep_random.transpose() << std::endl;
 
     return 0;
+
+
+//Exercice 2 
+//Question 1
+
+double evaluerPolynomial(const std::vector<double>& coefficients, double z) {
+    double result = 0.0;
+    for (int i = coefficients.size() - 1; i >= 0; --i) {
+        result = result * z + coefficients[i];
+    }
+    return result;
+}
+
+//Question 2
