@@ -126,3 +126,29 @@ vector<double> evalPoly(const vector<double>& x, const vector<double>& y, const 
     return results;
 }
 
+//Question 3
+int main() {
+    vector<double> x = {0, 1, 2, 3};
+    vector<double> y = {1, 2, 9, 28};
+
+    vector<vector<double>> div_diff = diffdiv(x, y);
+
+    cout << "Tableau des différences divisées : " << endl;
+    for (int i = 0; i < div_diff.size(); ++i) {
+        for (int j = 0; j < div_diff[i].size(); ++j) {
+            cout << div_diff[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    vector<double> z = {0, 1, 2, 3, 4, 5};
+
+    vector<double> results = evalPoly(x, y, z);
+
+    for (int i = 0; i < z.size(); ++i) {
+        cout << "P(" << z[i] << ") = " << results[i] << endl;
+    }
+
+    return 0;
+}
+
