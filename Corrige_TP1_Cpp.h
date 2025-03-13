@@ -105,5 +105,5 @@ vector<vector<double>> diffdiv(const vector<double>& x, const vector<double>& y)
         }
     }
     return div_diff;
-}
+
 
