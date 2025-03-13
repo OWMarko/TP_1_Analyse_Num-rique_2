@@ -82,3 +82,28 @@ double evaluerPolynomialSansFor(const std::vector<double>& coefficients, double 
         return coefficients[0];
     }
     return coefficients[n] + z * evaluerPolynomialSansFor(coefficients, z, n - 1);
+
+//Question 3
+double horner(const vector<double>& coeffs, double x) {
+    double result = coeffs[0];
+    for (size_t i = 1; i < coeffs.size(); ++i) {
+        result = result * x + coeffs[i];
+    }
+    return result;
+}
+
+//Exercice 3
+vector<vector<double>> diffdiv(const vector<double>& x, const vector<double>& y) {
+    int n = x.size();
+    vector<vector<double>> div_diff(n, vector<double>(n));
+    for (int i = 0; i < n; ++i) {
+        div_diff[i][0] = y[i];
+    }
+    for (int j = 1; j < n; ++j) {
+        for (int i = 0; i < n - j; ++i) {
+            div_diff[i][j] = (div_diff[i + 1][j - 1] - div_diff[i][j - 1]) / (x[i + j] - x[i]);
+        }
+    }
+    return div_diff;
+}
+
