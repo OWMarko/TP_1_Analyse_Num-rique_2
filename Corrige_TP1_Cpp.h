@@ -93,6 +93,7 @@ double horner(const vector<double>& coeffs, double x) {
 }
 
 //Exercice 3
+//Question 1
 vector<vector<double>> diffdiv(const vector<double>& x, const vector<double>& y) {
     int n = x.size();
     vector<vector<double>> div_diff(n, vector<double>(n));
@@ -107,4 +108,21 @@ vector<vector<double>> diffdiv(const vector<double>& x, const vector<double>& y)
     return div_diff;
 }
 
+//Question 2
+vector<double> evalPoly(const vector<double>& x, const vector<double>& y, const vector<double>& z) {
+    vector<vector<double>> div_diff = diffdiv(x, y);
+    int n = x.size();
+    vector<double> results;
+
+    for (const double& zi : z) {
+        double value = div_diff[0][0];
+        double term = 1.0;
+        for (int i = 1; i < n; ++i) {
+            term *= (zi - x[i - 1]);
+            value += div_diff[0][i] * term;
+        }
+        results.push_back(value);
+    }
+    return results;
+}
 
