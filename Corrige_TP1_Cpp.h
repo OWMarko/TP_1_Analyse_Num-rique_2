@@ -152,3 +152,30 @@ int main() {
     return 0;
 }
 
+//Exercice application
+double lagrangeInterpolation(double x, vector<double> X, vector<double> Y) {
+    int n = X.size();
+    double result = 0.0;
+    for (int i = 0; i < n; ++i) {
+        double term = Y[i];
+        for (int j = 0; j < n; ++j) {
+            if (i != j) {
+                term *= (x - X[j]) / (X[i] - X[j]);
+            }
+        }
+        result += term;
+    }
+    return result;
+}
+
+int main() {
+    vector<double> X = {0, 5, 10, 15, 20, 25, 30, 35, 40, 45};
+    vector<double> Y = {55, 60, 58, 54, 55, 60, 54, 57, 52, 49};
+    
+    for (double x = 0; x <= 45; x += 0.1) {
+        cout << "f(" << x << ") = " << lagrangeInterpolation(x, X, Y) << endl;
+    }
+
+    return 0;
+}
+
